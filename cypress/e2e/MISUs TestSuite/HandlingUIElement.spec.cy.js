@@ -1,3 +1,4 @@
+
 describe("My UI handling test suite",function(){
 
     it("Validating Url", function(){
@@ -20,7 +21,7 @@ describe("My UI handling test suite",function(){
 
     it("Interacting with radio buttons", function(){
         cy.visit("https://demo.guru99.com/test/newtours/reservation.php") // visit url
-        cy.get("[value=roundtrip]").should('be.visible').should('be.checked')   // verifying the visibility and select or not  
+        cy.get("[value=roundtrip]").should('be.checked').and('have.value','roundtrip').should('be.visible').should('be.checked')   // verifying the visibility and select or not  
         cy.get("[value=oneway]").should('be.visible').should('not.be.checked').click()  // verifying the visibility and select or not  
     
     })
@@ -28,11 +29,18 @@ describe("My UI handling test suite",function(){
  
     it("Interacting with check box & Drop Downs",function(){
 
+        Cypress.on('uncaught:exception', (err, runnable) => {
+            // returning false here prevents Cypress from
+            // failing the test
+            return false
+        })
+    
         cy.visit("https://demo.automationtesting.in/Register.html") // visit url
-        cy.get("#checkbox1").check().should('be.check').and('have.value','Cricket')
+        cy.get('#checkbox1').check().should('be.checked').and('have.value','Cricket')
 
     })
 
+   
 })
 
  
