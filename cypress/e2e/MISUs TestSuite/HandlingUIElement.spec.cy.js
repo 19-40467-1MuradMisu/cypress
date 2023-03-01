@@ -39,6 +39,14 @@ describe("My UI handling test suite",function(){
         cy.get('#checkbox1').check().should('be.checked').and('have.value','Cricket')
 
     })
+    
+    it("Handling alert",function(){
+        cy.visit("")
+
+
+
+
+    })
 
    
 })
